@@ -23,10 +23,10 @@
 <body>
 <header>
     <nav class="row text-center text-info">
-        <div class="col-md-2 bg-light">
-            <i class="material-icons">add</i>
+        <a href="mkdir?pach={{ $pach  }}&name=test1" class="col-md-2 bg-light">
+            <i class="material-icons"></i>
             فولدر جدید
-        </div>
+        </a>
 
         <div class="col-md-2 bg-light">
             فایل جدید

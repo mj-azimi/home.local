@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [DirectoryController::class,'home']);
+Route::get('/dir', [DirectoryController::class,'dir']);
+Route::get('/mkdir',[DirectoryController::class,'mkdir']);
 
 
-Route::any('/home',[DirectoryController::class,'home']);

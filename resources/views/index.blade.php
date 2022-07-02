@@ -4,12 +4,35 @@
 
     <div class="row">
 
-        <div class="col-md-12 ">
-            <div class="bg-secondary text-white">
 
-                <i class="bi bi-folder-fill"></i>
-                <b>C:\Users\m.azimi\Documents\project\home.local\public\main/</b>
-            </div>
+        <div>
+            {{$pach}}
+        </div>
+
+        <div class="col-md-12 ">
+            <a href="/">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+            @foreach($scan as $item)
+                <div class="bg-light text-white">
+                    <a href="{{ 'dir?dir='.$pach.'/'.$item[1] }}">
+                        @if($item[0] == 'dir')
+                            @if($item[1] == '..' )
+                                <i class="bi bi-backspace-fill"></i>
+                            @else
+                                <i class="bi bi-folder-fill"></i>
+
+                            @endif
+                            {{$item[1]}}
+                    </a>
+                    @else
+                        <a href="{{ asset('main').'/'.$item[1] }}">
+                            <i class="bi bi-file-earmark-fill"></i>
+                            {{$item[2]}}
+                        </a>
+                    @endif
+                </div>
+            @endforeach
 
         </div>
     </div>

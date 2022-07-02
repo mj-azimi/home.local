@@ -6,18 +6,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function () {
-        function getMessage() {
-            $.ajax({
-               type:'get',
-               url:'/home',
-               data:'_token = <?php echo csrf_token() ?>',
-               success:function(data) {
-                  alert(data.directories);
-                  alert(data.files);
-               }
-            });
-         }
-         getMessage();
+        $('.dirname').change(function () {
+                
+            alert('ookokok');
+        });
     });
 </script>
 </body>
