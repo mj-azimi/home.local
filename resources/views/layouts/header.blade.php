@@ -23,13 +23,11 @@
 <body>
 <header>
     <nav class="row text-center text-info">
-        <a href="mkdir?pach={{ $pach  }}&name=test1" class="col-md-2 bg-light">
-            <i class="material-icons"></i>
-            فولدر جدید
-        </a>
-
+        <button class="col-md-2 bg-light newDir">فولدر جدید</button>
+        <input type="hidden" value='{{ $pach  }}'>
         <div class="col-md-2 bg-light">
             فایل جدید
         </div>
     </nav>
+
 </header>

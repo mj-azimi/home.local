@@ -46,14 +46,26 @@ class DirectoryController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function mkdir(Request $request)
     {
-//        dd($request->pach);
-//        mkdir($request->pach);
-        $path = public_path('main'.$request->pach.'/'.'testttt');
+        $path = public_path('main'.$request->pach);
         File::makeDirectory($path,'777',1);
-        dd('okkk');
 
+        return redirect()->back();
+    }
+
+
+
+    public function dldir(Request $request)
+    {
+
+        $dir = public_path('main/'.$request->dir);
+        File::deleteDirectory($dir);
+        return redirect()->back();
     }
 
 

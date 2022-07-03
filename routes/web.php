@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DirectoryController::class,'home']);
 Route::get('/dir', [DirectoryController::class,'dir']);
 Route::get('/mkdir',[DirectoryController::class,'mkdir']);
+Route::get('/dldir',[DirectoryController::class,'dldir']);
 
 
