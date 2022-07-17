@@ -30,7 +30,7 @@
                         <i class="bi bi-trash-fill btn btn-danger text-light deleteDir" dir="{{ $item[1] }}" > delete</i>
                     @endif
                 @else
-                        <a href="{{ asset('main').'/'.$item[1] }}">
+                        <a href="{{ asset('home_main').'/'.$item[1] }}">
                             <i class="bi bi-file-earmark-fill"></i>
                             {{$item[2]}}
                         </a>

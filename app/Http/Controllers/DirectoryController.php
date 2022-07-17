@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Stmt\DeclareDeclare;
+use Symfony\Component\Process\Process;
 
 class DirectoryController extends Controller
 {
@@ -16,13 +17,13 @@ class DirectoryController extends Controller
      */
     public function home(){
 
-        $scan = collect( scandir(public_path('main') ) );
+        $scan = collect( scandir(public_path('home_main') ) );
 
 
         list($pach, $scan) = SearchInDir::search($scan);
 
 
-        $pach=explode('/public/main',$pach)[1];
+        $pach=explode('/public/home_main',$pach)[0];
         $pach = StrEdite::delSlash($pach);
 
         return view('index',['scan' => $scan ,'pach'=>$pach]);
@@ -34,12 +35,12 @@ class DirectoryController extends Controller
      */
     public function dir(Request $request){
 
-        $scan = collect( scandir(public_path('main/'.$request->dir) ) );
+        $scan = collect( scandir(public_path('home_main/'.$request->dir) ) );
 
         list($pach, $scan) = SearchInDir::search($scan , $request->dir);
 
 
-        $pach=explode('/public/main',$pach)[1];
+        $pach=explode('/public/home_main',$pach)[1];
         $pach = StrEdite::delSlash($pach);
 
         return view('index',['scan' => $scan ,'pach'=>$pach]);
@@ -52,7 +53,7 @@ class DirectoryController extends Controller
      */
     public function mkdir(Request $request)
     {
-        $path = public_path('main'.$request->pach);
+        $path = public_path('home_main'.$request->pach);
         File::makeDirectory($path,'777',1);
 
         return redirect()->back();
@@ -63,10 +64,18 @@ class DirectoryController extends Controller
     public function dldir(Request $request)
     {
 
-        $dir = public_path('main/'.$request->dir);
+        $dir = public_path('home_main/'.$request->dir);
         File::deleteDirectory($dir);
         return redirect()->back();
     }
+
+    //download
+    public function mkfiledn(Request $request){
+
+        exec("wget -O home_main/{$request->name} {$request->url}" );
+        return redirect()->back();
+    }
+
 
 
 }

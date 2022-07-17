@@ -9,6 +9,9 @@
         $('.newDir').click(function () {
 
             let person = prompt("نام فولدر");
+            if (person == null) {
+                return 1;
+            }
             var url = $('input').val();
 
             if (person != null || person != "") {
@@ -20,6 +23,8 @@
             let dir = $(event.target).attr('dir');
             let url = '{{$pach}}';
 
+            console.log(dir);
+            return 1;
             window.location.href = "/dldir?dir="+url+'/'+dir;
         });
 
