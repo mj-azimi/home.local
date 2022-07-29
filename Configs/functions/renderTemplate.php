@@ -1,9 +1,11 @@
 <?php
 
 
-function view($name,$vars){
+function view($name,$vars = Null){
 
-    extract($vars);
+    if (!is_null($vars)) {
+        extract($vars);
+    }
 
     include __DIR__.'/../../views/'.$name.'.blade.php';
 }

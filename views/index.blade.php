@@ -54,7 +54,7 @@
                 <hr>
                 <div class="bg-light text-white">
      
-                        <a href="/home/<?php echo($item) ?>">
+                        <a href="/video?name=<?php echo($item) ?>">
                             <i class="bi bi-file-earmark-fill"></i>
                             <?php echo ($item); ?> 
                         </a>
